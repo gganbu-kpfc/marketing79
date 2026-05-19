@@ -2,16 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* =========================
+   기본 설정
+========================= */
+
+:root {
+
+  --background: #ffffff;
+
+  --foreground: #111111;
+
+  --blue: #0047FF;
+
+  --navy: #06152E;
+
+  --kakao: #FEE500;
+
+  --border: rgba(0, 71, 255, 0.08);
+
+  --shadow-blue: 0 20px 60px rgba(0, 71, 255, 0.15);
+
+  --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+  --radius: 24px;
+}
+
+
+/* =========================
+   html / body
+========================= */
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+
   margin: 0;
-  background: #ffffff;
-  color: #111111;
-  font-family: Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  padding: 0;
+
+  background: var(--background);
+
+  color: var(--foreground);
+
+  font-family:
+    Pretendard,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  overflow-x: hidden;
+
+  word-break: keep-all;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
 }
+
+
+/* =========================
+   전체 공통
+========================= */
 
 * {
   box-sizing: border-box;
@@ -19,4 +75,569 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================
+   스크롤바
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f7fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #0047FF,
+    #06152E
+  );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0047FF;
+}
+
+
+/* =========================
+   Selection
+========================= */
+
+::selection {
+  background: #0047FF;
+  color: white;
+}
+
+
+/* =========================
+   공통 컨테이너
+========================= */
+
+.container-custom {
+
+  width: 100%;
+
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding-left: 20px;
+
+  padding-right: 20px;
+}
+
+
+/* =========================
+   섹션 기본
+========================= */
+
+.section-padding {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+
+/* =========================
+   공통 타이틀
+========================= */
+
+.section-label {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  background: rgba(0, 71, 255, 0.08);
+
+  color: #0047FF;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.section-title {
+
+  margin-top: 24px;
+
+  font-size: clamp(36px, 5vw, 64px);
+
+  font-weight: 900;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.06em;
+
+  color: #111111;
+}
+
+.section-description {
+
+  margin-top: 24px;
+
+  max-width: 720px;
+
+  font-size: 18px;
+
+  line-height: 1.9;
+
+  font-weight: 500;
+
+  color: #5f6472;
+}
+
+
+/* =========================
+   버튼 스타일
+========================= */
+
+.btn-primary {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 18px 28px;
+
+  border-radius: 18px;
+
+  background: #0047FF;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  transition: all 0.25s ease;
+
+  box-shadow: var(--shadow-blue);
+}
+
+.btn-primary:hover {
+
+  background: #111111;
+
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 18px 28px;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(0, 71, 255, 0.15);
+
+  background: white;
+
+  color: #111111;
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+
+  border-color: #0047FF;
+
+  color: #0047FF;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   카드 공통
+========================= */
+
+.card-default {
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 32px;
+
+  border: 1px solid rgba(0, 71, 255, 0.08);
+
+  background: white;
+
+  transition: all 0.35s ease;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.card-default:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 71, 255, 0.12);
+}
+
+
+/* =========================
+   블루 배경 섹션
+========================= */
+
+.bg-blue-section {
+
+  background:
+    linear-gradient(
+      135deg,
+      #0047FF 0%,
+      #06152E 100%
+    );
+
+  color: white;
+}
+
+
+/* =========================
+   다크 섹션
+========================= */
+
+.bg-dark-section {
+
+  background:
+    linear-gradient(
+      135deg,
+      #06152E 0%,
+      #020817 100%
+    );
+
+  color: white;
+}
+
+
+/* =========================
+   그라데이션 텍스트
+========================= */
+
+.gradient-text {
+
+  background:
+    linear-gradient(
+      135deg,
+      #0047FF,
+      #00A3FF
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================
+   배경 블러
+========================= */
+
+.blur-ball {
+
+  position: absolute;
+
+  border-radius: 999px;
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+.blur-blue {
+
+  background: rgba(0, 71, 255, 0.18);
+}
+
+.blur-indigo {
+
+  background: rgba(99, 102, 241, 0.15);
+}
+
+
+/* =========================
+   흐르는 텍스트
+========================= */
+
+.marquee {
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  position: relative;
+}
+
+.marquee-track {
+
+  display: flex;
+
+  width: fit-content;
+
+  animation: marqueeMove 30s linear infinite;
+}
+
+.marquee-item {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 28px;
+
+  font-size: 20px;
+
+  font-weight: 900;
+
+  color: rgba(255,255,255,0.85);
+}
+
+@keyframes marqueeMove {
+
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================
+   카드 glow 효과
+========================= */
+
+.card-glow::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(0,71,255,0.12),
+      transparent 50%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+
+/* =========================
+   이미지 hover
+========================= */
+
+.image-hover {
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.image-hover:hover {
+
+  transform: scale(1.04);
+
+  filter: brightness(1.03);
+}
+
+
+/* =========================
+   카카오 버튼
+========================= */
+
+.kakao-floating {
+
+  position: fixed;
+
+  right: 20px;
+
+  bottom: 20px;
+
+  z-index: 999;
+
+  width: 72px;
+
+  height: 72px;
+
+  border-radius: 999px;
+
+  background: #FEE500;
+
+  color: black;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.2);
+
+  transition: all 0.3s ease;
+}
+
+.kakao-floating:hover {
+
+  transform: scale(1.08);
+
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.28);
+}
+
+
+/* =========================
+   Fade In
+========================= */
+
+.fade-up {
+
+  opacity: 0;
+
+  transform: translateY(40px);
+
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   모바일 최적화
+========================= */
+
+@media (max-width: 1024px) {
+
+  .section-padding {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .section-title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .container-custom {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section-padding {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .section-title {
+
+    font-size: 36px;
+
+    line-height: 1.2;
+  }
+
+  .section-description {
+
+    font-size: 16px;
+
+    line-height: 1.8;
+  }
+
+  .btn-primary,
+  .btn-outline {
+
+    width: 100%;
+  }
+
+  .kakao-floating {
+
+    width: 64px;
+
+    height: 64px;
+  }
+}
+
+
+/* =========================
+   로딩
+========================= */
+
+body.loaded {
+  animation: pageFade 0.5s ease;
+}
+
+@keyframes pageFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
